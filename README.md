@@ -11,7 +11,7 @@
 | 5    | :white_check_mark:   | [큐](https://github.com/h2222y/Algorithms/tree/main/baekjoon/%ED%81%90)                                                                                          |
 | 6    | :white_check_mark:   | [덱](https://github.com/h2222y/Algorithms/tree/main/baekjoon/%EB%8D%B1)                                                                                          |
 | 7    | :black_large_square: | [BFS&DFS](https://github.com/h2222y/Algorithms/tree/main/baekjoon/BFS%26DFS)                                                                                     |
-| 8    | :white_large_square: | 재귀                                                                                                                                                             |
+| 8    | :white_large_square: | [재귀](https://github.com/h2222y/Algorithms/tree/main/baekjoon/%EC%9E%AC%EA%B7%80)                                                                               |
 | 9    | :white_large_square: | 백트래킹                                                                                                                                                         |
 | 10   | :white_large_square: | 시뮬레이션                                                                                                                                                       |
 | 11   | :white_large_square: | 정렬1                                                                                                                                                            |
