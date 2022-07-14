@@ -11,6 +11,7 @@ bool check(int x,int y,int n) {
 	}
 	return true; // 모두 같은 경우 true
 }
+
 void recur(int x, int y, int n) {
 	if (check(x, y, n)) { // 배열이 모두 같은 숫자로 이루어져 있는지 확인
 		cnt[paper[x][y]] ++; // true면 모두 같은 경우므로 cnt[0|1]++;
