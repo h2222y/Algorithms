@@ -16,7 +16,7 @@ int vis[102][102];
 
 int dx[4] = { 0,0,-1,1 };
 int dy[4] = { -1,1,0,0 };
-int n;
+int subin;
 string str;
 
 void bfs(int x,int y) {
@@ -29,7 +29,7 @@ void bfs(int x,int y) {
 		for (int i = 0; i < 4; i++) {
 			int nx = cur.X + dx[i];
 			int ny = cur.Y + dy[i];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+			if (nx < 0 || nx >= subin || ny < 0 || ny >= subin) continue;
 			if (vis[nx][ny] == 1 || paper[x][y] != paper[nx][ny]) continue;
 			vis[nx][ny] = 1;
 			Q.push({ nx,ny });
@@ -40,8 +40,8 @@ void bfs(int x,int y) {
 
 int area() {
 	int cnt = 0; //카운트 초기화
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	for (int i = 0; i < subin; i++) {
+		for (int j = 0; j < subin; j++) {
 			if (vis[i][j] == 0) { // 방문하지 않았다면
 				bfs(i, j); //bfs 돌리기
 				cnt++; //bfs를 돌렷으면 해당 구역에 존재하는 모든 영역 확인 했으므로 카운트 1증가
@@ -54,20 +54,20 @@ int area() {
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	cin >> n; //n<=100
-	for (int i = 0; i < n;i++) {
+	cin >> subin; //n<=100
+	for (int i = 0; i < subin;i++) {
 		cin >> str; // string으로 입력받음 
 		paper[i] = str;
 	}
 
 	int not_p = area(); //색약이 아닌 사람
 
-	for (int i = 0; i < n; i++) { // 색약인 사람을 구하기 위해 방문배열 초기화
-		fill(vis[i], vis[i] + n, 0);
+	for (int i = 0; i < subin; i++) { // 색약인 사람을 구하기 위해 방문배열 초기화
+		fill(vis[i], vis[i] + subin, 0);
 	}
 
-	for (int x = 0; x < n; x++) {
-		for (int y = 0; y < n; y++) {
+	for (int x = 0; x < subin; x++) {
+		for (int y = 0; y < subin; y++) {
 			if (paper[x][y] == 'R') { //빨강과 초록을 구분하지 못하므로 빨강을 초록으로 바꿔주기
 				paper[x][y] = 'G';
 			}

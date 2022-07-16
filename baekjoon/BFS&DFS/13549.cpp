@@ -1,15 +1,15 @@
 #include <iostream>
 #include <queue>
 using namespace std;
-int n, k;
+int subin, sister;
 int dist[200005];
 
 int main() {
-	cin >> n >> k; // 수빈이와 동생의 위치를 입력받는다
+	cin >> subin >> sister; // 수빈이와 동생의 위치를 입력받는다
 	deque<int> DQ; //deque 사용
 	fill(dist, dist + 200000, -1); // 범위는 2배를 고려해서 잡았다/
-	DQ.push_back(n); // dq에 수빈이의 좌표를 넣는다
-	dist[n] = 0; // 수빈이의 좌표를 0으로 두고 거리를 측정한다. 
+	DQ.push_back(subin); // dq에 수빈이의 좌표를 넣는다
+	dist[subin] = 0; // 수빈이의 좌표를 0으로 두고 거리를 측정한다. 
 	while(!DQ.empty()) { // dq가 모두 빌때까지
 		int cur = DQ.front(); // dq의 앞의 값을 가져온다
 		DQ.pop_front(); // 값 빼기
@@ -24,5 +24,5 @@ int main() {
 			DQ.push_back(nxt); //뒤에 넣어준다.
 		}
 	}
-	cout << dist[k]; // 동생의 좌표의 dist값 출력하기
+	cout << dist[sister]; // 동생의 좌표의 dist값 출력하기
 }
