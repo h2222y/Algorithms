@@ -1,42 +1,29 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
-int price[10000000];
+
+int bene[1000004];
 
 int main() {
-	int T;
-	cin >> T;
-	for (int tc = 1; tc <= T; tc++) {
+	int tc;
+	cin >> tc;
+	for (int T = 1; T <= tc; T++) {
 		int n;
 		cin >> n;
-		for (int i = 0; i < n; i++) {
-			cin >> price[i];
-		}
-		int max_val = -9999;
-		long long profit = 0;
-		int cnt = 0;
+		int max_val = -999999;
+		long long ans = 0;
 
-		for (int now = n - 1; now >= 0; now--) {
-			if (price[now] > max_val) { // max_val : now 이후로 가장 비싼 가격 
-				max_val = price[now];
-			} //vs max_val
-			profit += max_val - price[now];
+		for (int i = 1; i <= n; i++) {
+			cin >> bene[i];
 		}
-		cout << "#"<<tc<<" "<< profit<<endl;
-		/*
-		for (int now = 0; now < 5; now ++) {
-			// 1.
-		max_val = -9999;
-
-			for(int next=now;next<5;next++){
-				if (price[next] > max_val) {
-					max_val = price[next];
-				}
+		for (int i = n; i >= 1; i--) {
+			if (bene[i] > max_val) {
+				max_val = bene[i];
 			}
-		// 2. 이익 누적
-			profit += max_val - price[now];
+			ans += max_val - bene[i];
 		}
-		cout << profit;
-		*/
+		cout <<"#"<<T<<" "<< ans << "\n";
+
 	}
-	return 0;
+	return 0; 
 }
