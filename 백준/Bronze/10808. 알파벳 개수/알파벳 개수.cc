@@ -2,26 +2,23 @@
 #include <string>
 using namespace std;
 
-int main() {
-	char arr[100] = { 0 };
-	char t = 'a';
-	int bucket[26] = { 0 };
-	for (int i = 0; i < 26; i++) {
-		arr[i] = t;
-		t++;
-	}
+void Solution(string& s, int freq[])
+{
+	for (auto c : s)
+		freq[c - 'a']++;
+	for (int i = 0; i < 26; i++)
+		cout << freq[i] << " ";
+		
+}
 
-	string str;
-	cin >> str;
-	for (int i = 0; i < str.length(); i++) {
-		for (int j = 0; j < 26; j++) {
-			if (str[i] == arr[j]) {
-				bucket[j]++;
-			}
-		}
-	}
-	for (int i = 0; i < 26; i++) {
-		cout << bucket[i] << " ";
-	}
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int freq[26] = {};
+	string s;
+	cin >> s;
+	Solution(s, freq);
+	
 	return 0;
 }
